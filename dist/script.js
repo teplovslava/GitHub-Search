@@ -3,16 +3,21 @@ let vals = inputSearch.value
 let res = document.querySelector(".result")
 let addBtn = document.querySelector(".container button")
 let h3 = document.querySelector(".resH3")
+let spinner =  document.querySelector(".spinner")
 
 
 addBtn.addEventListener('click',function(){
     res.innerHTML=""
     h3.innerHTML=""
+    if (res.textContent==""){
+        spinner.style.display="flex"
+    }
 
 
 searchRepos()
 
 })
+
 
 
 function searchRepos(){
@@ -47,10 +52,9 @@ function searchRepos(){
         div2.append(p)
         res.append(div)
     })
-
+    spinner.style.display="none"
     h3.innerHTML=`Найдено ${data.total_count} репозиториев`             
             })
-         
         }
 
     
